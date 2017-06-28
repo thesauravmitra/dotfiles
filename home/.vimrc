@@ -1,20 +1,48 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+Plug 'AndrewRadev/linediff.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'godlygeek/tabular'
+Plug 'keith/swift.vim'
+Plug 'sauravm97/vim-python-pep8-indent'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+call plug#end()
+
+"surround
+"cs to change surround
+"ys or vS to add to surround
+"ds to delete surround
+
+"git-gutter
+"[c and ]c to navigate hunks
+"<leader>hs <leader>hp <leader>hu to stage, preview, and unstage hunks
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" >> Custom mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Autocomplete in normal mode
 nnoremap <C-n> i<C-n>
 nnoremap <C-p> i<C-p>
+
+"Access the system clipboard faster
 vnoremap + "+
 nnoremap + "+
 
-inoremap II <C-o>I
-inoremap AA <C-o>A
-inoremap CC <C-o>C
-inoremap SS <C-o>S
-
 nnoremap <cr> a<cr><ESC>k:s/ *$//<cr>:noh<cr>j0
 
+"Use Tab and S-Tab to shift the entire line
 nmap <Tab> a<C-t><Esc>
 nmap <S-Tab> a<C-d><Esc>
 imap <Tab> <C-t>
 imap <S-Tab> <C-d>
 
+"Ignore the recommended style, which is given higher priority
 let g:python_recommended_style = 0
 
 "set runtimepath+=~/.vim/bundle/swift.vim
@@ -24,6 +52,7 @@ let g:python_recommended_style = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
 set cc=80
+
 set background=dark
 
 set history=700
@@ -43,13 +72,9 @@ let g:mapleader = ","
 nnoremap <leader><leader>k :sp ~/.vimrc<cr>
 nnoremap <leader><leader>j :vsp ~/.vimrc<cr>
 " Fast saving
-nmap <leader>w :w<cr>
+nmap <leader>w :call DeleteTrailingWS()<cr>:w<cr>
 nmap <leader>. :w<cr>
 nmap <leader>; :q<cr>
-
-" Useful bubble text normal mapping for arrow keys.
-
-nnoremap <leader>rws :call DeleteTrailingWS()<cr>
 
 nnoremap > :<C-u>execute "normal! v".v:count.">"<cr>
 nnoremap < :<C-u>execute "normal! v".v:count."<"<cr>
@@ -59,16 +84,6 @@ vnoremap < <`[V`]
 nmap gV `[v`]
 
 nmap camel :%s#\(\<\u\l\+\\|\l\+\)\(\u\)#\l\1_\l\2#g<CR>
-
-execute pathogen#infect()
-"surround
-"cs to change surround
-"ys or vS to add to surround
-"ds to delete surround
-
-"git-gutter
-"[c and ]c to navigate hunks
-"<leader>hs <leader>hp <leader>hu to stage, preview, and unstage hunks
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -285,10 +300,6 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-" autocmd BufWrite *.py :call DeleteTrailingWS()
-" autocmd BufWrite *.coffee :call DeleteTrailingWS()
-autocmd BufWrite * :call DeleteTrailingWS()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
