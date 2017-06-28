@@ -1,0 +1,6 @@
+[credential]
+	helper =
+[user]
+	name = Saurav Mitra
+[alias]
+	root = !pwd
