@@ -56,7 +56,7 @@ if [ -s ~/.git-prompt.sh ]; then
   }
 fi
 
-if hash brew; then
+if hash brew 2> /dev/null; then
   [ -s `brew --prefix`/etc/profile.d/z.sh ] && . `brew --prefix`/etc/profile.d/z.sh
 fi
 
