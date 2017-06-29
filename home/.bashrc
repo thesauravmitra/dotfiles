@@ -14,7 +14,7 @@ elif [ -s ~/.bash_aliases ]; then
 fi
 
 i=$(($SHLVL-1))
-if [ -n $TMUX ]; then
+if [ -n "$TMUX" ]; then
   (( i -= 2 ))
 fi
 
