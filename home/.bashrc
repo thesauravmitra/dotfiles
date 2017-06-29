@@ -38,7 +38,7 @@ if [ -s ~/.git-prompt.sh ]; then
       local JOBS="[$YELLOW$N_JOBS$RESET_COLOR]"
     fi
 
-    if [ -f ~/.my_baby ]; then
+    if [ -f ~/.my_baby ] && ([ -n $TMUX ] && [ $SHLVL == 3 ] || [ $SHLVL == 1 ]); then
       local START="\# ${BOLD_CYAN}$DNO${RESET_COLOR} \w"
     else
       local START="\# \w"
