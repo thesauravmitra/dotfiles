@@ -2,3 +2,4 @@
 .vim/ftplugin
 .tmux/plugins
 .tmux
+.bash_aliases
