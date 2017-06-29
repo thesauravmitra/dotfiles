@@ -7,7 +7,7 @@
 
 if [ -d ~/.bash_aliases ]; then
   for f in ~/.bash_aliases/*.bash_aliases; do
-    . $f
+    [ -s $f ] && . $f
   done
 elif [ -s ~/.bash_aliases ]; then
   . ~/.bash_aliases
@@ -45,7 +45,7 @@ if [ -s ~/.git-prompt.sh ]; then
       local JOBS="[$YELLOW$N_JOBS$RESET_COLOR]"
     fi
 
-    if [ -f ~/.my_baby ] && ([ -n $TMUX ] && [ $SHLVL == 3 ] || [ $SHLVL == 1 ]); then
+    if [ -f ~/.my_baby ]; then
       local START="\# ${BOLD_CYAN}$DNO${RESET_COLOR} \w"
     else
       local START="\# \w"
