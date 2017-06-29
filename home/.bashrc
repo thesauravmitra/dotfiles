@@ -13,6 +13,17 @@ elif [ -s ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+i=$(($SHLVL-1))
+if [ -n $TMUX ]; then
+  (( i -= 2 ))
+fi
+
+if [[ $i -gt 0 ]]; then
+  INPUT_PROMPT=$(printf '%.0s-' $(seq 1 $i))
+else
+  INPUT_PROMPT=
+fi
+
 if [ -s ~/.git-prompt.sh ]; then
   . ~/.git-prompt.sh
   export GIT_PS1_SHOWDIRTYSTATE=1
@@ -50,7 +61,7 @@ if [ -s ~/.git-prompt.sh ]; then
     else
       local START="\# \w"
     fi
-    local END=" ${SUCC_COLOR}λ${RESET_COLOR}$JOBS\n  "
+    local END=" ${SUCC_COLOR}λ${RESET_COLOR}$JOBS\n$INPUT_PROMPT  "
 
     __git_ps1 "$START" "$END"
   }
