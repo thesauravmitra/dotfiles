@@ -1,10 +1,17 @@
 #!/bin/bash
 
 [ -s ~/.git-completion.bash ] && . ~/.git-completion.bash
-[ -s ~/.bash_aliases ] && . ~/.bash_aliases
 [ -s ~/.alias_completion ] && . ~/.alias_completion
 [ -s ~/.profile ] && . ~/.profile
 [ -s ~/.iterm2_shell_integration.bash ] && . ~/.iterm2_shell_integration.bash
+
+if [ -d ~/.bash_aliases ]; then
+  for f in ~/.bash_aliases/*.bash_aliases; do
+    . $f
+  done
+elif [ -s ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
 
 if [ -s ~/.git-prompt.sh ]; then
   . ~/.git-prompt.sh
