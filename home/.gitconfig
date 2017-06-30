@@ -4,3 +4,7 @@
 	name = Saurav Mitra
 [alias]
 	root = !pwd
+[url "https://github.com/sauravm97/"]
+	insteadOf = _my:
+[url "git@github-sauravm97:sauravm97/"]
+	insteadOf = my:
