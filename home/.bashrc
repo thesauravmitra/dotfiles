@@ -1,17 +1,18 @@
 #!/bin/bash
 
-[ -s ~/.git-completion.bash ] && . ~/.git-completion.bash
-[ -s ~/.alias_completion ] && . ~/.alias_completion
 [ -s ~/.profile ] && . ~/.profile
+[ -s ~/.git-completion.bash ] && . ~/.git-completion.bash
 [ -s ~/.iterm2_shell_integration.bash ] && . ~/.iterm2_shell_integration.bash
 
 if [ -d ~/.bash_aliases ]; then
-  for f in ~/.bash_aliases/*.bash_aliases; do
+  for f in ~/.bash_aliases/.bash_aliases ~/.bash_aliases/*.bash_aliases; do
     [ -s $f ] && . $f
   done
 elif [ -s ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+
+[ -s ~/.alias_completion ] && . ~/.alias_completion
 
 i=$(($SHLVL-1))
 if [ -n "$TMUX" ]; then
