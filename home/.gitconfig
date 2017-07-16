@@ -6,5 +6,5 @@
 	root = !pwd
 [url "https://github.com/sauravm97/"]
 	insteadOf = _my:
-[url "git@github-sauravm97:sauravm97/"]
+[url "git@github:sauravm97/"]
 	insteadOf = my:
