@@ -1,18 +1,40 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " >> Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:solarized_termtrans=1
+
 call plug#begin('~/.vim/plugged')
+
+"Utilities
 Plug 'AndrewRadev/linediff.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
-Plug 'keith/swift.vim'
-Plug 'sauravm97/vim-python-pep8-indent'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+
+"Colorscheme
+Plug 'altercation/vim-colors-solarized'
+
+"Syntax Support
+Plug 'rust-lang/rust.vim'
+Plug 'itchyny/vim-haskell-indent'
+Plug 'keith/swift.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'sauravm97/vim-opencl'
+Plug 'sauravm97/vim-python-pep8-indent'
+Plug 'sauravm97/flint.vim'
+Plug 'tomlion/vim-solidity'
+Plug 'kongo2002/fsharp-vim'
 call plug#end()
+
+"rust.vim
+let g:rustfmt_autosave = 1
+"vim-jsx
+let g:jsx_ext_required = 0
 
 "surround
 "cs to change surround
@@ -52,8 +74,6 @@ let g:python_recommended_style = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
 set cc=80
-
-set background=dark
 
 set history=700
 
@@ -143,7 +163,10 @@ set tm=500
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme default
+map <leader>cod :set background=light<cr>:colorscheme default<cr>
+map <leader>cos :set background=light<cr>:colorscheme solarized<cr>
+map <leader>cons :set background=dark<cr>:colorscheme solarized<cr>
+colorscheme solarized
 
 " Enable syntax highlighting
 syntax enable
