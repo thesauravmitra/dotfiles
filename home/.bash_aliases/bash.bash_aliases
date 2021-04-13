@@ -1,3 +1,4 @@
 #!/bin/bash
 
-alias br='. ~/.bash_profile'
+alias br='. ~/.bashrc'
+alias brp='. ~/.bash_profile'

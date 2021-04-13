@@ -5,9 +5,9 @@
 	email = mitrasaurav97@gmail.com
 [alias]
 	root = !pwd
-[url "https://github.com/sauravm97/"]
+[url "https://github.com/thesauravmitra/"]
 	insteadOf = _my:
-[url "git@github:sauravm97/"]
+[url "git@github:thesauravmitra/"]
 	insteadOf = my:
 [core]
 	excludesfile = /Users/smitra/.gitignore.system
