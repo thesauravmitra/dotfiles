@@ -25,7 +25,7 @@ Plug 'keith/swift.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'sauravm97/vim-opencl'
-Plug 'sauravm97/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'sauravm97/flint.vim'
 Plug 'tomlion/vim-solidity'
 Plug 'kongo2002/fsharp-vim'
@@ -63,6 +63,8 @@ nmap <Tab> a<C-t><Esc>
 nmap <S-Tab> a<C-d><Esc>
 imap <Tab> <C-t>
 imap <S-Tab> <C-d>
+
+imap ppwd <Esc>:read !basename $(pwd)<cr>kJA
 
 "Ignore the recommended style, which is given higher priority
 let g:python_recommended_style = 0
@@ -102,8 +104,6 @@ vnoremap > >`[V`]
 vnoremap < <`[V`]
 
 nmap gV `[v`]
-
-nmap camel :%s#\(\<\u\l\+\\|\l\+\)\(\u\)#\l\1_\l\2#g<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -163,10 +163,12 @@ set tm=500
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>cod :set background=light<cr>:colorscheme default<cr>
-map <leader>cos :set background=light<cr>:colorscheme solarized<cr>
-map <leader>cons :set background=dark<cr>:colorscheme solarized<cr>
+map <leader>cod :colorscheme default<cr>:set background=light<cr>
+map <leader>cos :colorscheme solarized<cr>:set background=light<cr>
+map <leader>cons :colorscheme solarized<cr>:set background=dark<cr>
+
 colorscheme solarized
+set background=dark
 
 " Enable syntax highlighting
 syntax enable
