@@ -2,7 +2,7 @@
 	helper =
 [user]
 	name = Saurav Mitra
-	email = mitrasaurav97@gmail.com
+	email = thesauravmitra@gmail.com
 [alias]
 	root = !pwd
 [url "https://github.com/thesauravmitra/"]
@@ -10,4 +10,4 @@
 [url "git@github:thesauravmitra/"]
 	insteadOf = my:
 [core]
-	excludesfile = /Users/smitra/.gitignore.system
+	excludesfile = ~/.gitignore.system
